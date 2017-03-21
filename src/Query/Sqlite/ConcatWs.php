@@ -59,7 +59,7 @@ class ConcatWs extends FunctionNode
         $queryBuilder = array('(');
 
         // Iterate over the captured expressions and add them to the query.
-        for ($i = 0; $i < count($this->values); $i++) {
+        for ($i = 0, $j = count($this->values); $i < $j; $i++) {
             if ($i > 0) {
                 $queryBuilder[] = " || '$separator' || ";
             }
