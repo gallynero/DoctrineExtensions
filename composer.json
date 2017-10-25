@@ -24,10 +24,14 @@
         "zf1/zend-date": "Alternative to DateTime"
     },
     "autoload": {
-        "psr-4": {"DoctrineExtensions\\" : "src/"}
+        "psr-4": {
+            "DoctrineExtensions\\" : "src/"
+        }
     },
     "autoload-dev": {
-        "psr-4": { "DoctrineExtensions\\Tests\\": "tests/" }
+        "psr-4": {
+            "DoctrineExtensions\\Tests\\": "tests/"
+        }
     },
     "extra": {
         "branch-alias": {
