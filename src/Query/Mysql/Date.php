@@ -6,17 +6,27 @@ use Doctrine\ORM\Query\AST\Functions\FunctionNode,
     Doctrine\ORM\Query\Lexer;
 
 /**
- * @author Steve Lacey <steve@stevelacey.net>
+ * "DATE" "(" SimpleArithmeticExpression ")". Modified from DoctrineExtensions\Query\Mysql\Year
+ *
+ * @category    DoctrineExtensions
+ * @package     DoctrineExtensions\Query\Mysql
+ * @license     MIT License
  */
 class Date extends FunctionNode
 {
     public $date;
 
+    /**
+     * @override
+     */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
         return "DATE(" . $sqlWalker->walkArithmeticPrimary($this->date) . ")";
     }
 
+    /**
+     * @override
+     */
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {
         $parser->match(Lexer::T_IDENTIFIER);

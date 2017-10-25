@@ -1,10 +1,9 @@
 <?php
-
 namespace DoctrineExtensions\Query\Mysql;
 
-use Doctrine\ORM\Query\AST\Functions\FunctionNode,
-    Doctrine\ORM\Query\Lexer,
-    Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
+use Doctrine\ORM\Query\AST\Functions\FunctionNode;
+use Doctrine\ORM\Query\Lexer;
+use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
 
 class Rand extends FunctionNode
 {
@@ -17,9 +16,9 @@ class Rand extends FunctionNode
     {
         if ($this->expression) {
             return 'RAND(' . $this->expression->dispatch($sqlWalker) . ')';
-        } else {
-            return 'RAND()';
         }
+
+        return 'RAND()';
     }
 
     public function parse(\Doctrine\ORM\Query\Parser $parser)
